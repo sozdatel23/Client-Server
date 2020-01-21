@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 
 public class Main{
-    public static final int PORT = 8080;
     public static ServerSocket server;
     private static BufferedReader in;
     private static BufferedWriter out;
@@ -13,7 +12,6 @@ public class Main{
         new Main().bind(2000,2046);
         System.out.println("Started: " + server);
         try {
-            // Блокирует до тех пор, пока не возникнет соединение:
             Socket socket = server.accept();
             try {
                 System.out.println("Connection accepted: " + socket);
@@ -26,19 +24,19 @@ public class Main{
                     System.out.println("Client: " + word);
 
                     if(word.equals("exit")){
-                        out.write("Ok, тогда " + word + "\n");
+                        out.write("Ok, " + word + "\n");
                         a = false;
                     }
                     if(word.equals("Do you understand me?")){
                         out.write("Yes, i do" + "\n");
                     }
 
-                    out.write("Вы написали  " + word + "\n");
+                    out.write("You wrote  " + word + "\n");
                     out.flush();
                 }
             }
             finally {
-                System.out.println("closing...");
+                System.out.println("Closing...");
                 socket.close();
             }
         }
