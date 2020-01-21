@@ -43,7 +43,6 @@ public class Main {
             }
             finally {
             System.out.println("closing...");
-
             }
         }
     }
